@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class ExamenFinalVarianteA {
+
+    public static void main(String[] args) {
+        ExamenFinalVarianteA examen = new ExamenFinalVarianteA();
+    
+    public void concatenarTexto(String texto) {
+        String resultado = "Variante resultado: " + texto;
+        System.out.println(resultado);
+    }
+    
+    public void generarTablaMultiplicar() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número para generar su tabla de multiplicar: ");
+        int numero = scanner.nextInt();
+        System.out.println("Tabla de multiplicar del " + numero + ":");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(numero + " x " + i + " = " + (numero * i));
+        }
+        scanner.close();
+    }
+    
+    public void esPrimoDesdeTerminal() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número para verificar si es primo: ");
+        int numero = scanner.nextInt();
+        scanner.close();
+        
+        boolean esPrimo = esPrimo(numero);
+        
+        if (esPrimo) {
+            System.out.println(numero + " es primo.");
+        } else {
+            System.out.println(numero + " no es primo.");
+        }
+    }
+    
+    private boolean esPrimo(int numero) {
+        if (numero <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+//segundocommit
