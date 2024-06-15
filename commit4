@@ -1,0 +1,99 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class GestorEstudiantes {
+    private List<Estudiante> listaEstudiantes;
+
+    public GestorEstudiantes() {
+        this.listaEstudiantes = new ArrayList<>();
+    }
+
+    public void agregarEstudiante(String nombre, double calificacion) {
+        Estudiante estudiante = new Estudiante(nombre, calificacion);
+        listaEstudiantes.add(estudiante);
+    }
+
+    public void ejecutarCicloAgregarEstudiantes() {
+        Scanner scanner = new Scanner(System.in);
+        
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Ingrese nombre del estudiante " + (i + 1) + ": ");
+            String nombre = scanner.nextLine();
+            
+            System.out.println("Ingrese calificación del estudiante " + (i + 1) + ": ");
+            double calificacion = Double.parseDouble(scanner.nextLine());
+            
+            agregarEstudiante(nombre, calificacion);
+        }
+        
+        scanner.close();
+    }
+
+    public void imprimirListaEstudiantes() {
+        System.out.println("Lista de Estudiantes:");
+        for (Estudiante estudiante : listaEstudiantes) {
+            System.out.println("Nombre: " + estudiante.getNombre() + ", Calificación: " + estudiante.getCalificacion());
+        }
+    }
+
+    public static void main(String[] args) {
+        GestorEstudiantes gestor = new GestorEstudiantes();
+        gestor.ejecutarCicloAgregarEstudiantes();
+        gestor.imprimirListaEstudiantes();
+    }
+}
+
+public class GestorEstudiantes {
+    private List<Estudiante> listaEstudiantes;
+
+    public GestorEstudiantes() {
+        this.listaEstudiantes = new ArrayList<>();
+    }
+
+
+    public void agregarEstudiante(String nombre, double calificacion) {
+        Estudiante estudiante = new Estudiante(nombre, calificacion);
+        listaEstudiantes.add(estudiante);
+    }
+
+    public void ejecutarCicloAgregarEstudiantes() {
+        Scanner scanner = new Scanner(System.in);
+        
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Ingrese nombre del estudiante " + (i + 1) + ": ");
+            String nombre = scanner.nextLine();
+            
+            System.out.println("Ingrese calificación del estudiante " + (i + 1) + ": ");
+            double calificacion = Double.parseDouble(scanner.nextLine());
+            
+            agregarEstudiante(nombre, calificacion);
+        }
+        
+        scanner.close();
+    }
+
+    public void imprimirListaEstudiantes() {
+        System.out.println("Lista de Estudiantes:");
+        for (Estudiante estudiante : listaEstudiantes) {
+            System.out.println("Nombre: " + estudiante.getNombre() + ", Calificación: " + estudiante.getCalificacion());
+        }
+    }
+
+    public void mostrarListaEstudiantes() {
+        System.out.println("Recorriendo y mostrando la lista de estudiantes:");
+        for (Estudiante estudiante : listaEstudiantes) {
+            System.out.println("Nombre: " + estudiante.getNombre() + ", Calificación: " + estudiante.getCalificacion());
+        }
+    }
+
+    public static void main(String[] args) {
+        GestorEstudiantes gestor = new GestorEstudiantes();
+        gestor.ejecutarCicloAgregarEstudiantes();
+        gestor.imprimirListaEstudiantes();
+        
+        gestor.mostrarListaEstudiantes();
+    }
+}
+//cuartocommit
