@@ -1,0 +1,216 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ExamenFinalVarianteA {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ExamenFinalVarianteA examen = new ExamenFinalVarianteA();
+
+        while (true) {
+            System.out.println("\n*** Menú ***");
+            System.out.println("1. Concatenar texto y mostrar resultado");
+            System.out.println("2. Generar tabla de multiplicar");
+            System.out.println("3. Verificar si un número es primo desde terminal");
+            System.out.println("4. listaEstudiantes");
+            System.out.println("5. AgregarEstudiantes");
+            System.out.println("6. imprimirListaEstudiantes");
+            System.out.println("7. GestorEstudiantes");
+            System.out.println("8. AgregarEstudiantes");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
+            
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); 
+            
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese un texto para concatenar: ");
+                    String textoConcatenar = scanner.nextLine();
+                    examen.concatenarTexto(textoConcatenar);
+                    break;
+                case 2:
+                    examen.generarTablaMultiplicar();
+                    break;
+                case 3:
+                    examen.esPrimoDesdeTerminal();
+                    break;
+                case 4:
+                    System.out.println("listaEstudiantes");
+                    break;
+                case 5:
+                    System.out.println("AgregarEstudiantes");
+                    break;
+                case 6:
+                    System.out.println("imprimirListaEstudiantes");
+                    break;
+                case 7:
+                    System.out.println("GestorEstudiantes");
+                    break;
+                case 8:
+                    System.out.println("AgregarEstudiantes");
+                    break;
+                case 0:
+                    System.out.println("Saliendo del programa...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+            }
+        }
+    }
+    //primercommit
+    public void concatenarTexto(String texto) {
+        String resultado = "Variante resultado: " + texto;
+        System.out.println(resultado);
+    }
+    
+    public void generarTablaMultiplicar() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número para generar su tabla de multiplicar: ");
+        int numero = scanner.nextInt();
+        System.out.println("Tabla de multiplicar del " + numero + ":");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(numero + " x " + i + " = " + (numero * i));
+        }
+    }
+    
+    public void esPrimoDesdeTerminal() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número para verificar si es primo: ");
+        int numero = scanner.nextInt();
+        scanner.nextLine(); 
+        
+        boolean esPrimo = esPrimo(numero);
+        
+        if (esPrimo) {
+            System.out.println(numero + " es primo.");
+        } else {
+            System.out.println(numero + " no es primo.");
+        }
+    }
+    
+    private boolean esPrimo(int numero) {
+        if (numero <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+}
+//segundocommit
+
+public class Main {
+    public static void main(String[] args) {
+        Estudiante estudiante1 = new Estudiante("Juan", 85.5);
+        
+        System.out.println("Nombre del estudiante: " + estudiante1.getNombre());
+        System.out.println("Calificación del estudiante: " + estudiante1.getCalificacion());
+        
+        estudiante1.setCalificacion(90.0);
+        System.out.println("Nueva calificación del estudiante: " + estudiante1.getCalificacion());
+    }
+}
+//tercercommit
+
+
+public class GestorEstudiantes {
+    private List<Estudiante> listaEstudiantes;
+
+    public GestorEstudiantes() {
+        this.listaEstudiantes = new ArrayList<>();
+    }
+
+    public void agregarEstudiante(String nombre, double calificacion) {
+        Estudiante estudiante = new Estudiante(nombre, calificacion);
+        listaEstudiantes.add(estudiante);
+    }
+
+    public void ejecutarCicloAgregarEstudiantes() {
+        Scanner scanner = new Scanner(System.in);
+        
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Ingrese nombre del estudiante " + (i + 1) + ": ");
+            String nombre = scanner.nextLine();
+            
+            System.out.println("Ingrese calificación del estudiante " + (i + 1) + ": ");
+            double calificacion = Double.parseDouble(scanner.nextLine());
+            
+            agregarEstudiante(nombre, calificacion);
+        }
+        
+        scanner.close();
+    }
+
+    public void imprimirListaEstudiantes() {
+        System.out.println("Lista de Estudiantes:");
+        for (Estudiante estudiante : listaEstudiantes) {
+            System.out.println("Nombre: " + estudiante.getNombre() + ", Calificación: " + estudiante.getCalificacion());
+        }
+    }
+
+    public static void main(String[] args) {
+        GestorEstudiantes gestor = new GestorEstudiantes();
+        gestor.ejecutarCicloAgregarEstudiantes();
+        gestor.imprimirListaEstudiantes();
+    }
+}
+
+public class GestorEstudiantes {
+    private List<Estudiante> listaEstudiantes;
+
+    public GestorEstudiantes() {
+        this.listaEstudiantes = new ArrayList<>();
+    }
+
+
+    public void agregarEstudiante(String nombre, double calificacion) {
+        Estudiante estudiante = new Estudiante(nombre, calificacion);
+        listaEstudiantes.add(estudiante);
+    }
+
+    public void ejecutarCicloAgregarEstudiantes() {
+        Scanner scanner = new Scanner(System.in);
+        
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Ingrese nombre del estudiante " + (i + 1) + ": ");
+            String nombre = scanner.nextLine();
+            
+            System.out.println("Ingrese calificación del estudiante " + (i + 1) + ": ");
+            double calificacion = Double.parseDouble(scanner.nextLine());
+            
+            agregarEstudiante(nombre, calificacion);
+        }
+        
+        scanner.close();
+    }
+
+    public void imprimirListaEstudiantes() {
+        System.out.println("Lista de Estudiantes:");
+        for (Estudiante estudiante : listaEstudiantes) {
+            System.out.println("Nombre: " + estudiante.getNombre() + ", Calificación: " + estudiante.getCalificacion());
+        }
+    }
+
+    public void mostrarListaEstudiantes() {
+        System.out.println("Recorriendo y mostrando la lista de estudiantes:");
+        for (Estudiante estudiante : listaEstudiantes) {
+            System.out.println("Nombre: " + estudiante.getNombre() + ", Calificación: " + estudiante.getCalificacion());
+        }
+    }
+
+    public static void main(String[] args) {
+        GestorEstudiantes gestor = new GestorEstudiantes();
+        gestor.ejecutarCicloAgregarEstudiantes();
+        gestor.imprimirListaEstudiantes();
+        
+        gestor.mostrarListaEstudiantes();
+    }
+}
+//cuartocommit
