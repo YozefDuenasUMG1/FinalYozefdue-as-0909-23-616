@@ -1,0 +1,12 @@
+public class Main {
+    public static void main(String[] args) {
+        Estudiante estudiante1 = new Estudiante("Juan", 85.5);
+        
+        System.out.println("Nombre del estudiante: " + estudiante1.getNombre());
+        System.out.println("Calificación del estudiante: " + estudiante1.getCalificacion());
+        
+        estudiante1.setCalificacion(90.0);
+        System.out.println("Nueva calificación del estudiante: " + estudiante1.getCalificacion());
+    }
+}
+//tercercommit
