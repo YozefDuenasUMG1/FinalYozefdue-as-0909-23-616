@@ -1,0 +1,58 @@
+public class ExamenFinalVarianteA {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ExamenFinalVarianteA examen = new ExamenFinalVarianteA();
+
+        while (true) {
+            System.out.println("\n*** Menú ***");
+            System.out.println("1. Concatenar texto y mostrar resultado");
+            System.out.println("2. Generar tabla de multiplicar");
+            System.out.println("3. Verificar si un número es primo desde terminal");
+            System.out.println("4. listaEstudiantes");
+            System.out.println("5. AgregarEstudiantes");
+            System.out.println("6. imprimirListaEstudiantes");
+            System.out.println("7. GestorEstudiantes");
+            System.out.println("8. AgregarEstudiantes");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
+            
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); 
+            
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese un texto para concatenar: ");
+                    String textoConcatenar = scanner.nextLine();
+                    examen.concatenarTexto(textoConcatenar);
+                    break;
+                case 2:
+                    examen.generarTablaMultiplicar();
+                    break;
+                case 3:
+                    examen.esPrimoDesdeTerminal();
+                    break;
+                case 4:
+                    System.out.println("listaEstudiantes");
+                    break;
+                case 5:
+                    System.out.println("AgregarEstudiantes");
+                    break;
+                case 6:
+                    System.out.println("imprimirListaEstudiantes");
+                    break;
+                case 7:
+                    System.out.println("GestorEstudiantes");
+                    break;
+                case 8:
+                    System.out.println("AgregarEstudiantes");
+                    break;
+                case 0:
+                    System.out.println("Saliendo del programa...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+            }
+        }
+    }
